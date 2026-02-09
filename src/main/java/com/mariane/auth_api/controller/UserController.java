@@ -30,7 +30,8 @@ public class UserController {
 
     @GetMapping("/me")
     public String me(Authentication authentication) {
-        return "Usuário logado: " + authentication.getName();
+        User user = (User) authentication.getPrincipal();
+        return "Usuário logado: " + user.getUsername();
     }
 }
 
